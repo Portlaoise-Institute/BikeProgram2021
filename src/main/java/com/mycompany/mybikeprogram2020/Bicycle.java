@@ -24,7 +24,9 @@ public class Bicycle {
     
     //empty constructor - no arguments 
     public Bicycle(){
-        
+        this.cadence = 0;
+        this.speed = 0;
+        this.gear = 1;
     }
     
     
