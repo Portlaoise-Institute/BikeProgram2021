@@ -13,7 +13,7 @@ public class TestBicycle {
         // Create two different 
         // Bicycle objects
         Bicycle bike1 = new Bicycle();
-        Bicycle bike2 = new Bicycle(0,0,1);
+        Bicycle bike2 = new Bicycle(1,2,1);
 
         // Invoke methods on 
         // those objects
