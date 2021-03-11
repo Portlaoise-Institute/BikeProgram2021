@@ -29,6 +29,8 @@ public class TestBicycle {
         bike2.speedUp(10);        //speed now 20 
         bike2.setGear(3);
         bike2.applyBrakes(5);     //speed now 15 
+        
+        //Display Bike 2
         System.out.println(bike2.toString());
     } //end main
     
