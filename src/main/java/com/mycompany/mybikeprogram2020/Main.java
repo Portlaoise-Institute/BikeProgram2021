@@ -95,6 +95,15 @@ public class Main extends javax.swing.JFrame {
         cadenceLbl = new javax.swing.JLabel();
         speedLbl = new javax.swing.JLabel();
         gearLbl = new javax.swing.JLabel();
+        editWindow = new javax.swing.JFrame();
+        jLabel9 = new javax.swing.JLabel();
+        speedUpBtn = new javax.swing.JButton();
+        incrementTxt = new javax.swing.JTextField();
+        decrementTxt = new javax.swing.JTextField();
+        applyBrakesBtn = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        curSpeedLbl = new javax.swing.JLabel();
         titleLbl = new javax.swing.JLabel();
         createBtn = new javax.swing.JButton();
         displayBtn = new javax.swing.JButton();
@@ -244,6 +253,90 @@ public class Main extends javax.swing.JFrame {
                 .addGap(40, 40, 40))
         );
 
+        editWindow.setTitle("Edit the Bike");
+        editWindow.setLocation(new java.awt.Point(500, 200));
+        editWindow.setMinimumSize(new java.awt.Dimension(250, 350));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setText("Speed Up or Slow Down:");
+
+        speedUpBtn.setText("Speed Up");
+        speedUpBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                speedUpBtnActionPerformed(evt);
+            }
+        });
+
+        applyBrakesBtn.setText("Apply Brakes");
+        applyBrakesBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                applyBrakesBtnActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Close");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("Current Speed:");
+
+        curSpeedLbl.setText("...");
+
+        javax.swing.GroupLayout editWindowLayout = new javax.swing.GroupLayout(editWindow.getContentPane());
+        editWindow.getContentPane().setLayout(editWindowLayout);
+        editWindowLayout.setHorizontalGroup(
+            editWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editWindowLayout.createSequentialGroup()
+                .addGroup(editWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(editWindowLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel9))
+                    .addGroup(editWindowLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(curSpeedLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(editWindowLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(editWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(editWindowLayout.createSequentialGroup()
+                                .addComponent(incrementTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(speedUpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(editWindowLayout.createSequentialGroup()
+                                .addComponent(decrementTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(applyBrakesBtn))))
+                    .addGroup(editWindowLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        editWindowLayout.setVerticalGroup(
+            editWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editWindowLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel9)
+                .addGap(30, 30, 30)
+                .addGroup(editWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(curSpeedLbl))
+                .addGap(18, 18, 18)
+                .addGroup(editWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(incrementTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(speedUpBtn))
+                .addGap(32, 32, 32)
+                .addGroup(editWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(decrementTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(applyBrakesBtn))
+                .addGap(41, 41, 41)
+                .addComponent(jButton4)
+                .addContainerGap(60, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bicycle App");
 
@@ -265,6 +358,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         editBtn.setText("Edit the Bike");
+        editBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBtnActionPerformed(evt);
+            }
+        });
 
         exitBtn.setText("Exit");
         exitBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -339,6 +437,8 @@ public class Main extends javax.swing.JFrame {
             //Test display myBike
             System.out.println(myBike.toString());
             
+            //reset textfields on the create bike window
+            
             //Close the Create Bike Window 
             createWindow.setVisible(false);
              
@@ -360,6 +460,61 @@ public class Main extends javax.swing.JFrame {
         
             
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        // Show the Edit Window
+        editWindow.setVisible(true);
+        // Show the current speed in the Edit Window
+        curSpeedLbl.setText(Integer.toString(myBike.getSpeed()));
+    }//GEN-LAST:event_editBtnActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+        //reset the speedup and apply brake text boxes
+
+        // Show the Edit Window
+        editWindow.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void speedUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speedUpBtnActionPerformed
+        //check the bike exists 
+        //validate the increment text box
+        if (incrementTxt.getText().equals("")){
+            JOptionPane.showMessageDialog(this,"Please enter the increment!",
+                    "Missing info",JOptionPane.INFORMATION_MESSAGE);
+        }
+        else {
+            // get the increment amount
+            int increment = Integer.parseInt(incrementTxt.getText());
+            
+            //call the speedup method for myBike
+            myBike.speedUp(increment);
+            
+            //update the current speed label
+            curSpeedLbl.setText(Integer.toString(myBike.getSpeed()));
+        }
+             
+        
+    }//GEN-LAST:event_speedUpBtnActionPerformed
+
+    private void applyBrakesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_applyBrakesBtnActionPerformed
+        //check the bike exists 
+        //validate the decrement text box
+        if (decrementTxt.getText().equals("")){
+            JOptionPane.showMessageDialog(this,"Please enter the decrement!",
+                    "Missing info",JOptionPane.INFORMATION_MESSAGE);
+        }
+        else {
+            // get the decrement amount
+            int decrement = Integer.parseInt(decrementTxt.getText());
+            
+            //call the speedup method for myBike
+            myBike.applyBrakes(decrement);
+            
+            //update the current speed label
+            curSpeedLbl.setText(Integer.toString(myBike.getSpeed()));
+        }
+    }//GEN-LAST:event_applyBrakesBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -397,19 +552,26 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton applyBrakesBtn;
     private javax.swing.JLabel cadenceLbl;
     private javax.swing.JTextField cadenceTxt;
     private javax.swing.JButton createBikeBtn;
     private javax.swing.JButton createBtn;
     private javax.swing.JFrame createWindow;
+    private javax.swing.JLabel curSpeedLbl;
+    private javax.swing.JTextField decrementTxt;
     private javax.swing.JButton displayBtn;
     private javax.swing.JFrame displayWindow;
     private javax.swing.JButton editBtn;
+    private javax.swing.JFrame editWindow;
     private javax.swing.JButton exitBtn;
     private javax.swing.JLabel gearLbl;
     private javax.swing.JTextField gearTxt;
+    private javax.swing.JTextField incrementTxt;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -417,8 +579,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel speedLbl;
     private javax.swing.JTextField speedTxt;
+    private javax.swing.JButton speedUpBtn;
     private javax.swing.JLabel titleLbl;
     // End of variables declaration//GEN-END:variables
 
