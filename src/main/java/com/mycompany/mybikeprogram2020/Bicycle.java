@@ -1,9 +1,5 @@
 package com.mycompany.mybikeprogram2020;
 
-/**
- *
- * @author Darren
- */
 public class Bicycle {
     
     //instance variables 
