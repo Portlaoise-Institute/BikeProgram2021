@@ -446,11 +446,21 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_createBikeBtnActionPerformed
 
     private void displayBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBtnActionPerformed
-        // Show the DisplayWindow
-        displayWindow.setVisible(true);
         
-        //Show the bike info on the form
-        displayBike();
+        if (myBike==null){
+            JOptionPane.showMessageDialog(this,"Please create the bike first",
+                    "Error",JOptionPane.ERROR_MESSAGE);
+
+        } 
+        else {
+            // Show the DisplayWindow
+            displayWindow.setVisible(true);
+        
+            //Show the bike info on the form
+            displayBike();
+        }
+
+     
         
     }//GEN-LAST:event_displayBtnActionPerformed
 
@@ -462,10 +472,17 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
-        // Show the Edit Window
-        editWindow.setVisible(true);
-        // Show the current speed in the Edit Window
-        curSpeedLbl.setText(Integer.toString(myBike.getSpeed()));
+        
+        if (myBike==null){
+            JOptionPane.showMessageDialog(this,"Please create the bike first",
+                    "Error",JOptionPane.ERROR_MESSAGE);
+        } 
+        else {
+            // Show the Edit Window
+            editWindow.setVisible(true);
+            // Show the current speed in the Edit Window
+            curSpeedLbl.setText(Integer.toString(myBike.getSpeed()));
+        }
     }//GEN-LAST:event_editBtnActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
